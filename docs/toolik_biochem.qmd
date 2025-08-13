@@ -30,7 +30,31 @@ inlet_biochem <- inlet_biochem |> select(p_h, doc_u_m, tdn_u_m)
 
 ```{r}
 # mean value of each col: for loop
+# df[[i]] calls the ith col!
 
-# mean value of each col: other
+# storage vector
+inlet_biochem_fl <- vector(mode = "numeric", length = ncol(inlet_biochem))
+
+for (col in 1:ncol(inlet_biochem)) {
+  mean_value <- mean(inlet_biochem[[col]], na.rm = TRUE)
+  inlet_biochem_fl[[col]] <- mean_value
+}
+print(inlet_biochem_fl)
+
+# mean value of each col: apply()
+inlet_biochem_apply <- vector(mode = "numeric", length = ncol(inlet_biochem)) # storage vector !
+
+inlet_biochem_apply <- apply(X = inlet_biochem, MARGIN = 2, FUN = mean, na.rm = TRUE) 
+print(inlet_biochem_apply)
+
+# mean value of each col: {purrr}
+inlet_biochem_pur <- purrr::map_dbl(.x = inlet_biochem, .f = mean, na.rm = TRUE)
+print(inlet_biochem_pur)
+
+# mean value of each col: dplyr::
+library(tidyverse)
+inlet_biochem_dp <- inlet_biochem |> 
+  summarize(across(where(is.numeric), mean, na.rm = TRUE))
+inlet_biochem_dp
 ```
 
