@@ -1,0 +1,68 @@
+---
+title: "conditionals_loops"
+author: "zachyloo"
+format: html
+editor: visual
+---
+
+# Conditionals
+## Task 1
+```{r}
+pm2_5 <- 100
+
+
+if (pm2_5 < 100) {
+  print("Low to moderate risk")
+} else if (pm2_5 >= 100 & pm2_5 < 150) {
+  print("Unhealthy for sensitive groups")
+} else {
+  print("Health risk present")
+}
+```
+
+## Task 2
+```{r}
+# using stringr
+library(stringr)
+
+species <- "blue whale"
+
+if (str_detect(species, "whale")) {
+  print("You found a whale!")
+} else {
+  print("nothing :((, go find the whale")
+}
+```
+
+## Task 3
+```{r}
+# using switch
+base_burrito <- 6.50
+main_ingredient <- "steak"
+
+switch(main_ingredient, #FIXME
+       "veggie" = print(base_burrito),
+       "chicken" = print(base_burrito + 3),
+       "steak" = print(base_burrito +3.25))
+
+```
+
+## Task 4
+```{r}
+fish <- c(8, 10, 12, 23)
+
+# get a total
+fish_total <- sum(fish)
+
+for (i in fish) { #FIXME
+  print((i / fish_total) * 100)
+}
+```
+
+## Task 5
+```{r}
+for (i in seq_along(month.name)) {
+  cat(month.name[i], "is month", i, "\n")
+}
+```
+
