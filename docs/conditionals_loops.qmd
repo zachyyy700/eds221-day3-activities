@@ -40,10 +40,10 @@ if (str_detect(species, "whale")) {
 base_burrito <- 6.50
 main_ingredient <- "steak"
 
-switch(main_ingredient, #FIXME
+switch(main_ingredient, 
        "veggie" = print(base_burrito),
        "chicken" = print(base_burrito + 3),
-       "steak" = print(base_burrito +3.25))
+       "steak" = print(base_burrito + 3.25))
 
 ```
 
@@ -54,7 +54,7 @@ fish <- c(8, 10, 12, 23)
 # get a total
 fish_total <- sum(fish)
 
-for (i in fish) { #FIXME
+for (i in fish) { 
   print((i / fish_total) * 100)
 }
 ```
