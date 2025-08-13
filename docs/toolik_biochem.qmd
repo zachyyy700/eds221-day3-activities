@@ -16,9 +16,7 @@ library(here)
 
 ```{r}
 # load data, adjust default "." to "NA"
-toolik_biochem <- read_csv(here::here("data", "2011_Kling_Akchem.csv"), na = c(".", "NA"))
-
-toolik_biochem <- toolik_biochem |> janitor::clean_names()
+toolik_biochem <- read_csv(here::here("data", "2011_Kling_Akchem.csv"), na = c(".", "NA"))　|> janitor::clean_names()
 ```
 
 ```{r}
