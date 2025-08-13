@@ -1,0 +1,36 @@
+---
+title: "toolik_chem"
+author: "zachyloo"
+format: html
+editor: visual
+---
+
+# Biochemistry Analysis at Toolik Lake, Alaska
+
+```{r}
+# load packages
+library(janitor)
+library(tidyverse)
+library(here)
+```
+
+```{r}
+# load data, adjust default "." to "NA"
+toolik_biochem <- read_csv(here::here("data", "2011_Kling_Akchem.csv"), na = c(".", "NA"))
+
+toolik_biochem <- toolik_biochem |> janitor::clean_names()
+```
+
+```{r}
+# filter rows using filter
+inlet_biochem <- dplyr::filter(toolik_biochem, site == "Toolik Inlet")
+# select cols using dplyr::select()
+inlet_biochem <- inlet_biochem |> select(p_h, doc_u_m, tdn_u_m)
+```
+
+```{r}
+# mean value of each col: for loop
+
+# mean value of each col: other
+```
+
