@@ -57,6 +57,16 @@ fish_total <- sum(fish)
 for (i in fish) { 
   print((i / fish_total) * 100)
 }
+
+fish2 <- c("guppy" = 8,
+           "goldfish" = 10,
+           "beta" = 12,
+           "lemon shark" = 23)
+fish2_total <- sum(fish2)
+for (i in 1:length(fish2)) {
+  fish_prop <- (fish2[i] / fish2_total) * 100
+  print(fish_prop)
+}
 ```
 
 ## Task 5
